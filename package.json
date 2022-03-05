@@ -1,0 +1,37 @@
+{
+  "name": "ms-user-authentication",
+  "version": "1.0.0",
+  "description": "Microserviço de autenticação de usuário",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./",
+    "dev": "ts-node-dev  --respawn  --ignore-watch node_modules src/index.ts",
+    "build": "tsc -p ."
+  },
+  "repository": "git+https://github.com/ManoelPatrocinio/ms-user-authentication.git",
+  "keywords": [],
+  "author": "ManoelPatrocinio <manoelpatrocinio99@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ManoelPatrocinio/ms-user-authentication/issues"
+  },
+  "homepage": "https://github.com/ManoelPatrocinio/ms-user-authentication#readme",
+  "dependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.21",
+    "@types/pg": "^8.6.4",
+    "@types/typescript": "^2.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "pg": "^8.7.3",
+    "ts-node": "^10.6.0",
+    "typescript": "^4.6.2"
+  },
+  "private": true,
+  "devDependencies": {
+    "ts-node-dev": "^1.1.8"
+  }
+}
