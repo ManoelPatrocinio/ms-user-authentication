@@ -8,4 +8,5 @@ Microserviço de autenticação de usuário
     Padrão Rest
     Express
     NodeJS
+    Typescript
     JWT

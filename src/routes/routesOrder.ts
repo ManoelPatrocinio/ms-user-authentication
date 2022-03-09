@@ -11,18 +11,17 @@ routes.get("/users", async (req:Request, res:Response,next:NextFunction) => {
     res.status(200).send(users)
     
   } catch (error) {
-    res.status(404).send({message: "Error from return users list"})
-    
+    next(error)
   }
 });
 
 routes.get("/users/:uuid", async (req:Request<{uuid: string}>, res:Response,next:NextFunction) => {
-  const uuid = req.params.uuid
   try {
+    const uuid = req.params.uuid
     const user = await userRepositories.findUserById(uuid)
     res.status(200).send(user)
   } catch (error) {
-    res.status(404).send({message: "Error on find user "})
+    next(error)
   }
 });
 
@@ -32,7 +31,7 @@ routes.post("/users", async (req:Request<{uui: string}>, res:Response,next:NextF
     const uuid = await userRepositories.createUser(newUser)
     res.status(200).send(uuid)
   } catch (error) {
-    res.status(404).send({message: "Error on create new user"}) 
+    next(error)
   }
 });
 
@@ -48,7 +47,7 @@ routes.put("/users/:uuid", async (req:Request<{uuid: string}>, res:Response,next
        await userRepositories.UpdateUser(modifieddUser)
       res.status(200).send({message: "User updated"})
     } catch (error) {
-      res.status(404).send({message: "Error on update user "})
+      next(error)
     }
   }else{
     res.status(404).send({message: "Error user not registed"})
@@ -66,7 +65,9 @@ routes.delete("/users/:uuid", async (req:Request<{uuid: string}>, res:Response,n
        await userRepositories.deleteUser(uuid)
       res.status(200).send({message: "User deleted"})
     } catch (error) {
-      res.status(404).send({message: "Error on delete user "})
+     // res.status(404).send({message: "Error on delete user "})
+      next(error)
+
     }
   }else{
     res.status(404).send({message: "Error user not registed"})
