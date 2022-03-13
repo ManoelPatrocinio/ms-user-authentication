@@ -21,8 +21,10 @@ async function jwtAuthenticationMiddleware(
     }
 
     try {
-      //check if this token is valid
-      const tokenPlayload = JWT.verify(token, "my_secret_key");
+      //check if this token is valid 
+      const secretKey  = process.env.JWT_SECRET_KEY || 'null'
+
+      const tokenPlayload = JWT.verify(token, secretKey);
 
       //assure return a string
       if (typeof tokenPlayload !== "object" || !tokenPlayload.sub) {

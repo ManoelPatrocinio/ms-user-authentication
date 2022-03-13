@@ -17,6 +17,7 @@ async function baseAuthenticationMiddleware (req: Request, res: Response, next: 
         }
         //converte token for strint 
         const tokenContent = Buffer.from(token,'base64').toString('utf-8')
+        
         const[userName,userPassword] = tokenContent.split(':')
   
         if(!userName || !userPassword){
