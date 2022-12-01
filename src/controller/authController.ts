@@ -17,13 +17,14 @@ class AuthController{
                 throw new ForbiddenError('User not informed!');
               }
          
-            const jwtPayload = { userName: user.username };// funciona assim, pq ? ainda não sei
-            const jwtOptions: SignOptions = { subject: user?.uuid, expiresIn: '15m' };// token expires In 30 minutes
+            const jwtPayload = { userEmail: user.userEmail };
+            const jwtOptions: SignOptions = { subject: user?.uuid, expiresIn: '15m' };// token expires In 15 minutes
       
             //create the token
             const jwt = JWT.sign(jwtPayload, secretKey, jwtOptions);
-      
-            res.status(200).json({  token: jwt });
+            const authenticatedUser  = {...user, token: jwt}
+
+            res.status(200).json(authenticatedUser);
         } catch (error) {
             next(error);
         }

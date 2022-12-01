@@ -1,5 +1,4 @@
 import { NextFunction,Request,Response } from "express";
-import { databaseError } from "../models/errors/databaseError.error.model";
 import { ForbiddenError } from "../models/errors/forbiddenError.error.model";
 import userRepositories from "../respositories/user.repositories";
 
@@ -19,11 +18,11 @@ async function baseAuthenticationMiddleware (req: Request, res: Response, next: 
         const tokenContent = Buffer.from(token,'base64').toString('utf-8')
         
         const[userName,userPassword] = tokenContent.split(':')
-  
         if(!userName || !userPassword){
           throw new ForbiddenError("empty crendential ");
         }
         const user = await userRepositories.findUserByNameAndPassword(userName,userPassword)
+        console.log("user receved",user)
         if(!user){
           throw new ForbiddenError("invalid user or password ");
         }

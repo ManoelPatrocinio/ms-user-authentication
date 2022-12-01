@@ -33,6 +33,7 @@ async function jwtAuthenticationMiddleware(
       const user = {
         uuid: tokenPlayload.sub,
         userName: tokenPlayload.userName,
+        userEmail: tokenPlayload.userEmail,
       };
       //send the authenticated user by the request
       req.user = user;

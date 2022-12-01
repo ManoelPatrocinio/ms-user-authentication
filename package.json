@@ -1,22 +1,22 @@
 {
-  "name": "ms-user-authentication",
+  "name": "proeja-vivo-backend",
   "version": "1.0.0",
   "description": "Microserviço de autenticação de usuário",
   "main": "./dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node ./",
+    "start": "node dist/index.js",
     "dev": "ts-node-dev --respawn --transpile-only --ignore-watch node_modules --no-notify src/index.ts",
     "build": "tsc -p ."
   },
-  "repository": "git+https://github.com/ManoelPatrocinio/ms-user-authentication.git",
+  "repository": "git+https://github.com/ManoelPatrocinio/proeja-vivo-backend.git",
   "keywords": [],
   "author": "ManoelPatrocinio <manoelpatrocinio99@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ManoelPatrocinio/ms-user-authentication/issues"
+    "url": "https://github.com/ManoelPatrocinio/proeja-vivo-backend/issues"
   },
-  "homepage": "https://github.com/ManoelPatrocinio/ms-user-authentication#readme",
+  "homepage": "https://github.com/ManoelPatrocinio/proeja-vivo-backend#readme",
   "dependencies": {
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
