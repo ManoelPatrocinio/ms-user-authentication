@@ -1,7 +1,6 @@
 # Sobre o projeto
 
-Backend do portal proeja vivo 
-
+Microserviço de autenticação de usuário, usando JWT e conceitos de REST em todos os metodos de um CRUD de usuário.
 
 ### Tecnologias Usadas
     Typescript
